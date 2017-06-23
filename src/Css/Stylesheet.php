@@ -171,7 +171,8 @@ class Stylesheet
         $this->setFontMetrics($dompdf->getFontMetrics());
         $this->_styles = array();
         $this->_loaded_files = array();
-        list($this->_protocol, $this->_base_host, $this->_base_path) = Helpers::explode_url($_SERVER["SCRIPT_FILENAME"]);
+        $scriptFileName = isset($_SERVER["SCRIPT_FILENAME"]) ? $_SERVER["SCRIPT_FILENAME"] : '';
+        list($this->_protocol, $this->_base_host, $this->_base_path) = Helpers::explode_url($scriptFileName);
         $this->_page_styles = array("base" => null);
     }
 
